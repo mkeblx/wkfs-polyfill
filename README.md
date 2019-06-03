@@ -1,3 +1,3 @@
-#Fullscreen API Polyfill - for webkit prefix only
+# Fullscreen API Polyfill - for webkit prefix only
 
 
