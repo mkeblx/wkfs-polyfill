@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Fullscreen API Polyfill - only for webkit prefix",
   "main": "dist/wkfs.polyfill.js",
+  "unpkg": "dist/wkfs.polyfill.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
