@@ -37,17 +37,15 @@ l('webkitExitFullscreen:', exitFullscreen);
 if (document.exitFullscreen === undefined) {
   // fullscreenEnabled
   l('polyfill Document.fullscreenEnabled');
-  document.fullscreenEnabled = document.webkitFullscreenEnabled;
+  document.fullscreenEnabled = document.webkitFullscreenEnabled || false;
 
   // requestFullscreen
   l('polyfill Element.requestFullscreen');
-  Element.prototype['requestFullscreen'] = function() {
-    return this['webkitRequestFullscreen'].apply(this, arguments);
-  }
+  Element.prototype.requestFullscreen = Element.prototype.webkitRequestFullscreen || function(){};
 
   // exitFullscreen
   l('polyfill Document.exitFullscreen');
-  document.exitFullscreen = document.webkitExitFullscreen;
+  document.exitFullscreen = document.webkitExitFullscreen || function(){};
 }
 
 })();
