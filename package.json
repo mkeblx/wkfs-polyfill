@@ -21,6 +21,7 @@
     "fancy-log": "^1.3.3",
     "gulp": "^4.0.2",
     "gulp-rename": "^1.4.0",
-    "gulp-size": "^3.0.0"
+    "gulp-size": "^3.0.0",
+    "gulp-uglify": "^3.0.2"
   }
 }
