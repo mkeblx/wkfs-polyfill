@@ -35,12 +35,17 @@ l('webkitExitFullscreen:', exitFullscreen);
 
 // polyfill
 if (document.exitFullscreen === undefined) {
+  // fullscreenEnabled
   l('polyfill Document.fullscreenEnabled');
   document.fullscreenEnabled = document.webkitFullscreenEnabled;
 
+  // requestFullscreen
   l('polyfill Element.requestFullscreen');
-  document.requestFullscreen = document.documentElement.webkitRequestFullscreen;
+  Element.prototype['requestFullscreen'] = function() {
+    return this['webkitRequestFullscreen'].apply(this, arguments);
+  }
 
+  // exitFullscreen
   l('polyfill Document.exitFullscreen');
   document.exitFullscreen = document.webkitExitFullscreen;
 }
