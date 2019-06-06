@@ -13,6 +13,10 @@ if (document.exitFullscreen === undefined) {
   // exitFullscreen
   console.log('polyfill Document.exitFullscreen');
   document.exitFullscreen = document.webkitExitFullscreen || function(){};
+
+  // fullscreenElement
+  console.log('polyfill Document.fullscreenElement');
+  document.fullscreenElement = document.webkitFullscreenElement;
 }
 
 })();
