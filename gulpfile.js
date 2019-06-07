@@ -4,30 +4,33 @@ var gulp = require('gulp'),
     size = require('gulp-size'),
     uglify = require('gulp-uglify');
 
-function copy(cb) {
+function copy() {
   const s = size({pretty: true, showFiles: true});
 
-  gulp.src('src/index.js')
+  return gulp.src('src/index.js')
     .pipe(s)
     .pipe(rename('wkfs.polyfill.js'))
-    .pipe(gulp.dest('dist'));
-
-    log('copied to dist/wkfs.polyfill.js');
-    cb();
+    .pipe(gulp.dest('dist'))
+    .on('end', function(){
+      log('copied to dist/wkfs.polyfill.js');
+    });
 };
 
-function compress(cb) {
-  gulp.src('dist/wkfs.polyfill.js')
+function compress() {
+  const s = size({pretty: true, showFiles: true});
+
+  return gulp.src('dist/wkfs.polyfill.js')
     .pipe(uglify({
       compress:{
         drop_console: true
       }
     }))
     .pipe(rename('wkfs.polyfill.min.js'))
-    .pipe(gulp.dest('dist'));
-
-    log('compressed to dist/wkfs.polyfill.min.js');
-    cb();
+    .pipe(s)
+    .pipe(gulp.dest('dist'))
+    .on('end', function(){
+      log('compressed to dist/wkfs.polyfill.min.js');
+      });
 }
 
 var defaultTasks = gulp.series(copy, compress);
