@@ -1,6 +1,6 @@
 {
   "name": "wkfs-polyfill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fullscreen API Polyfill - only for webkit prefix",
   "main": "dist/wkfs.polyfill.js",
   "unpkg": "dist/wkfs.polyfill.min.js",

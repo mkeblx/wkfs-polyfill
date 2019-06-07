@@ -1,16 +1,18 @@
 (function() {
 
+var d = document;
+
 function handleEvent(eventType, event) {
-  document.fullscreenEnabled = document.webkitFullscreenEnabled || false;
-  document.fullscreenElement = document.webkitFullscreenElement || null;
-  document.dispatchEvent(new Event(eventType), event.target);
+  d.fullscreenEnabled = d.webkitFullscreenEnabled || false;
+  d.fullscreenElement = d.webkitFullscreenElement || null;
+  d.dispatchEvent(new Event(eventType), event.target);
 }
 
 // polyfill
-if (document.exitFullscreen === undefined) {
+if (d.exitFullscreen === undefined) {
   // fullscreenEnabled
   console.log('polyfill Document.fullscreenEnabled');
-  document.fullscreenEnabled = document.webkitFullscreenEnabled || false;
+  d.fullscreenEnabled = d.webkitFullscreenEnabled || false;
 
   // requestFullscreen
   console.log('polyfill Element.requestFullscreen');
@@ -18,19 +20,19 @@ if (document.exitFullscreen === undefined) {
 
   // exitFullscreen
   console.log('polyfill Document.exitFullscreen');
-  document.exitFullscreen = document.webkitExitFullscreen || function(){};
+  d.exitFullscreen = d.webkitExitFullscreen || function(){};
 
   // fullscreenElement
   console.log('polyfill Document.fullscreenElement');
-  document.fullscreenElement = document.webkitFullscreenElement;
+  d.fullscreenElement = d.webkitFullscreenElement;
 
   // onfullscreenchange
   console.log('polyfill Document fullscreenchange event');
-  document.addEventListener('webkitfullscreenchange', handleEvent.bind(document, 'fullscreenchange'), false);
+  d.addEventListener('webkitfullscreenchange', handleEvent.bind(d, 'fullscreenchange'), false);
 
   // onfullscreenerror
   console.log('polyfill Document fullscreenerror event');
-  document.addEventListener('webkitfullscreenerror', handleEvent.bind(document, 'fullscreenerror'), false);
+  d.addEventListener('webkitfullscreenerror', handleEvent.bind(d, 'fullscreenerror'), false);
 }
 
 })();
