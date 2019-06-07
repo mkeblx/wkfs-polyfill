@@ -25,11 +25,11 @@ if (document.exitFullscreen === undefined) {
   document.fullscreenElement = document.webkitFullscreenElement;
 
   // onfullscreenchange
-  console.log('polyfill Document.onfullscreenchange');
+  console.log('polyfill Document fullscreenchange event');
   document.addEventListener('webkitfullscreenchange', handleEvent.bind(document, 'fullscreenchange'), false);
 
   // onfullscreenerror
-  console.log('polyfill Document.onfullscreenerror');
+  console.log('polyfill Document fullscreenerror event');
   document.addEventListener('webkitfullscreenerror', handleEvent.bind(document, 'fullscreenerror'), false);
 }
 
