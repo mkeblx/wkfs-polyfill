@@ -1,12 +1,4 @@
 describe('Fullscreen API', function() {
-  describe('#fullscreen', function() {
-    it('should be a boolean', function() {
-      assert.equal(typeof(document.fullscreen), 'boolean');
-    });
-    it('should be false by default', function() {
-      assert.equal(document.fullscreen, false);
-    });
-  })
   describe('#fullscreenEnabled', function() {
     it('should be a boolean', function() {
       assert.equal(typeof(document.fullscreenEnabled), 'boolean');
