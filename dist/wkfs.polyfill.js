@@ -1,5 +1,11 @@
 (function() {
 
+function handleEvent(eventType, event) {
+  document.fullscreenEnabled = document.webkitFullscreenEnabled || false;
+  document.fullscreenElement = document.webkitFullscreenElement || null;
+  document.dispatchEvent(new Event(eventType), event.target);
+}
+
 // polyfill
 if (document.exitFullscreen === undefined) {
   // fullscreenEnabled
@@ -17,6 +23,14 @@ if (document.exitFullscreen === undefined) {
   // fullscreenElement
   console.log('polyfill Document.fullscreenElement');
   document.fullscreenElement = document.webkitFullscreenElement;
+
+  // onfullscreenchange
+  console.log('polyfill Document.onfullscreenchange');
+  document.addEventListener('webkitfullscreenchange', handleEvent.bind(document, 'fullscreenchange'), false);
+
+  // onfullscreenerror
+  console.log('polyfill Document.onfullscreenerror');
+  document.addEventListener('webkitfullscreenerror', handleEvent.bind(document, 'fullscreenerror'), false);
 }
 
 })();
