@@ -2,7 +2,7 @@ module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'chai'],
-    files: ['dist/wkfs.polyfill.js', 'tests/test.js'],
+    files: ['dist/wkfs.polyfill.min.js', 'tests/test.js'],
     exclude: [],
     preprocessors: {},
     reporters: ['progress'],
