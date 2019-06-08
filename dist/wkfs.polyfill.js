@@ -1,9 +1,11 @@
 (function() {
 
 var d = document;
+var dAEL = d.addEventListener;
 
 var f = 'fullscreen';
 var fs = 'Fullscreen';
+
 var change = 'change';
 var enabled = 'Enabled';
 var element = 'Element';
@@ -50,11 +52,11 @@ if (d[s[0]] === undefined && d[w[0]] !== undefined) {
 
   // onfullscreenchange
   console.log('polyfill Document fullscreenchange event');
-  d.addEventListener(w+f+change, handleEvent.bind(d, f+change), false);
+  dAEL(w+f+change, handleEvent.bind(d, f+change), false);
 
   // onfullscreenerror
   console.log('polyfill Document fullscreenerror event');
-  d.addEventListener(w+f+error, handleEvent.bind(d, f+error), false);
+  dAEL(w+f+error, handleEvent.bind(d, f+error), false);
 }
 
 })();
