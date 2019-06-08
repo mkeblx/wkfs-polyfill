@@ -2,6 +2,7 @@
 
 var d = document;
 var dAEL = d.addEventListener;
+var Element_prototype = Element.prototype;
 
 var f = 'fullscreen';
 var fs = 'Fullscreen';
@@ -40,7 +41,7 @@ if (d[s[0]] === undefined && d[w[0]] !== undefined) {
 
   // requestFullscreen
   console.log('polyfill Element.requestFullscreen');
-  Element.prototype[s[1]] = Element.prototype[w[1]];
+  Element_prototype[s[1]] = Element_prototype[w[1]];
 
   // exitFullscreen
   console.log('polyfill Document.exitFullscreen');
