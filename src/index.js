@@ -31,10 +31,10 @@ function handleEvent(eventType, event) {
 }
 
 // polyfill
-if (d[s[0]] === undefined) {
+if (d[s[0]] === undefined && d[w[0]] !== undefined) {
   // fullscreenEnabled
   console.log('polyfill Document.fullscreenEnabled');
-  d[s[3]] = d[w[3]] || false;
+  d[s[3]] = d[w[3]];
 
   // requestFullscreen
   console.log('polyfill Element.requestFullscreen');
@@ -42,7 +42,7 @@ if (d[s[0]] === undefined) {
 
   // exitFullscreen
   console.log('polyfill Document.exitFullscreen');
-  d[s[0]] = d[w[0]] || function(){};
+  d[s[0]] = d[w[0]];
 
   // fullscreenElement
   console.log('polyfill Document.fullscreenElement');
